@@ -10,6 +10,7 @@ const authRoutes = require('./routes/authRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const profileRoutes = require('./routes/profileRoutes');
 const bookRoutes = require("./routes/bookRoutes");
+const adminRoutes = require('./routes/adminRoutes');
 
 //load environment variables
 dotenv.config();
@@ -30,6 +31,7 @@ app.use(session({
     }
 }));
 
+
 // Set view engine to EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -44,6 +46,7 @@ app.use('/auth', authRoutes);
 app.use('/', homeRoutes);
 app.use('/', profileRoutes);
 app.use("/", bookRoutes);
+app.use('/', adminRoutes);
 
 
 //for db connection
